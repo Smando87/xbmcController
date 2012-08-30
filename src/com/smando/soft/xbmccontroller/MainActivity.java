@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,14 +24,19 @@ public class MainActivity extends Activity {
 	TextView editText;
 	TextView ip;
 	
+	Intent listaFilm;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        
+        listaFilm=new Intent(this,ListaFilmActivity.class);
+        
         editText=(TextView)this.findViewById(id.editText);
         ip=(TextView)this.findViewById(id.editTextIP);
-        ip.setText("192.168.1.5");
+      //  ip.setText("192.168.1.5");
         start=(Button)this.findViewById(id.buttonStart) ;
         start.setOnClickListener(new OnClickListener(){
 
@@ -82,7 +88,14 @@ public class MainActivity extends Activity {
 
     		if (bundle.containsKey("lista_film")) {
     			editText.setText(bundle.getString("lista_film"));
+    			listaFilm.putExtra("lista", bundle.getString("lista_film"));
     		}
+    		
+    		if (bundle.containsKey("ipserver")) {
+    			ip.setText(bundle.getString("ipserver"));
+    		}
+    		
+    		
     	}
     }
 }
