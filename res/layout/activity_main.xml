@@ -34,42 +34,27 @@
         android:text="@string/salvaip" />
 
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/film"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBoxSalvaIP"
         android:layout_centerHorizontal="true"
-        android:text="@string/start" />
-
-    <Button
-        android:id="@+id/Chiudi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonStart"
-        android:layout_alignRight="@+id/buttonStart"
-        android:layout_below="@+id/buttonStart"
-        android:layout_marginTop="33dp"
-        android:text="@string/close" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/Chiudi"
-        android:layout_marginTop="42dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <Button
-        android:id="@+id/film"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Chiudi"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
         android:text="Lista Film" />
+
+    <ProgressBar
+        android:id="@+id/progressBarIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editTextIP"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBarLista"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/film"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
 
 </RelativeLayout>

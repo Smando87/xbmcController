@@ -13,63 +13,58 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class MainActivity extends Activity {
 
 	Button close;
+	//Button Pausa;
+	ProgressBar ProgressBarIP;
+	ProgressBar ProgressBarLista;
 	Button film;
 	Button start;
-	TextView editText;
 	TextView ip;
-	
+	Logger log;
 	Intent listaFilm;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        log=new Logger("/sdcard/","DiscoveryLog",this.getApplicationContext(),true);
+        ServerDiscover sdiscover=new ServerDiscover(log,new MyHandler());
+        sdiscover.start();
+        ProgressBarIP=(ProgressBar)this.findViewById(id.progressBarIP);
+        ProgressBarLista=(ProgressBar)this.findViewById(id.progressBarLista);
+        ProgressBarLista.setVisibility(View.GONE);
         
         listaFilm=new Intent(this,ListaFilmActivity.class);
-        
-        editText=(TextView)this.findViewById(id.editText);
+         
         ip=(TextView)this.findViewById(id.editTextIP);
-      //  ip.setText("192.168.1.5");
-        start=(Button)this.findViewById(id.buttonStart) ;
-        start.setOnClickListener(new OnClickListener(){
-
-			public void onClick(View arg0){
-				EV.IP=(String) ip.getText().toString();
-				Connessione c=new Connessione("esegui;vlc");
-				c.start();
-				
-			}
-
-			});
-        close=(Button)this.findViewById(id.Chiudi);
-        close.setOnClickListener(new OnClickListener(){
-
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				EV.IP=(String) ip.getText().toString();
-				Connessione c=new Connessione("esegui;killall vlc");
-				c.start();
-			}
-        	
-        });
+   
         film=(Button)this.findViewById(id.film);
         film.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				ProgressBarLista.setVisibility(View.VISIBLE);
 				EV.IP=(String) ip.getText().toString();
 				Connessione c=new Connessione("lista_film;",new MyHandler());
 				c.start();
 			}
         	
         });
+       /* Pausa=(Button)this.findViewById(id.Pausa);
+        Pausa.setOnClickListener(new OnClickListener(){
+
+			public void onClick(View v) {
+				Connessione c=new Connessione("esegui;pause");
+				c.start();
+			}
+        	
+        });*/
 
     }
 
@@ -87,12 +82,17 @@ public class MainActivity extends Activity {
     		Bundle bundle = msg.getData();
 
     		if (bundle.containsKey("lista_film")) {
-    			editText.setText(bundle.getString("lista_film"));
     			listaFilm.putExtra("lista", bundle.getString("lista_film"));
+    			ProgressBarLista.setVisibility(View.GONE);
+    			startActivity(listaFilm);
     		}
     		
     		if (bundle.containsKey("ipserver")) {
-    			ip.setText(bundle.getString("ipserver"));
+    			String IPcorretto=bundle.getString("ipserver");
+    			IPcorretto= IPcorretto.substring(1,IPcorretto.indexOf(":"));
+    			ip.setText(IPcorretto);
+    			ProgressBarIP.setVisibility(View.GONE);
+    		
     		}
     		
     		

@@ -8,5 +8,19 @@
     <string name="start">Start  XBMC</string>
     <string name="salvaip">SalvaIP</string>
     <string name="close">Chiudi</string>
+    <string name="Pause">Pausa</string>
+    <string name="Pausa">pausa</string>
+    <string name="ListaFilm">Lista Film</string>
+    <string name="play">play</string>
+    <string name="stop">stop</string>
+    <string name="pausa2">||</string>
+    <string name="play2">></string>
+    <string name="next">>></string>
+    <string name="prev">&lt;&lt;</string>
+    <string name="fullscreen">FullScreen</string>
+    <string name="titolo">Titolo:</string>
+    <string name="volpiu">+</string>
+    <string name="volmeno">-</string>
+    <string name="volume">Volume</string>
 
 </resources>

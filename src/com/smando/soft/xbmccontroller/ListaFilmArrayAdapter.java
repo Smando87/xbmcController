@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 public class ListaFilmArrayAdapter extends ArrayAdapter<ListaFilmItem> {
 
-	private static final String tag = "CountryArrayAdapter";
-	private static final String ASSETS_DIR = "images/";
+	//private static final String tag = "CountryArrayAdapter";
+	//private static final String ASSETS_DIR = "images/";
 	private Context context;
 
-	private ImageView itemIcon;
+	//private ImageView itemIcon;
 	private TextView titolo;
 	
 	private ProgressBar spinner1;
@@ -54,7 +54,7 @@ public class ListaFilmArrayAdapter extends ArrayAdapter<ListaFilmItem> {
 		ListaFilmItem item = getItem(position);
 		// itemIcon = (ImageView) row.findViewById(R.id.itemmenu_icon);
 		titolo = (TextView) row.findViewById(R.id.textViewTitoloFilm);
-
+		titolo.setText(item.titolo);
 		return row;
 	}
 
