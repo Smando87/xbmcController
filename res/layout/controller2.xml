@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/prev"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton_shape"
+            android:text="@string/prev" />
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton_shape"
+            android:text="@string/play2" />
+
+        <Button
+            android:id="@+id/pausa"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton_shape"
+            android:text="@string/pausa2" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botton_shape"
+            android:text="@string/next" />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/titolo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar1"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/volume"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Button
+            android:id="@+id/buttonVolMeno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volmeno" />
+
+        <Button
+            android:id="@+id/buttonVolPiu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volpiu" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar1"
+        android:layout_alignParentLeft="true"
+        android:text="@string/fullscreen" />
+
+    <Button
+        android:id="@+id/ListaFilm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="18dp"
+        android:text="@string/ListaFilm" />
+
+</RelativeLayout>
